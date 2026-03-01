@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Manifesto</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400..700;1,400..700&family=Permanent+Marker&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="split-view">
+    <div id="split-container">
+        <!-- Left Pane: Full text -->
+        <div id="left-pane">
+            <div class="manifesto-content">
+                <a href="index.html" class="back-btn">← Back to Overview</a>
+                <h1 class="guide-text manifesto-title">
+                    OFF TRACK
+                </h1>
+
+                <div class="full-text">
+                    <div class="manifesto-section">
+                        <h2>1 | Reality</h2>
+                        <p>
+                            This world prefers uniformity.<br>
+                            A single rhythm. A single goal. A single answer.<br>
+                            The difference is treated as noise.<br>
+                            Deviation is treated as an error.
+                        </p>
+                    </div>
+
+                    <div class="manifesto-section">
+                        <h2>2 | Refusal</h2>
+                        <p>
+                            We do not treat agreement as a virtue.<br>
+                            We do not manufacture consensus for comfort.<br>
+                            We reject the myth of one correct path to life.<br>
+                            There is no standard template.<br>
+                            There is no final version.
+                        </p>
+                    </div>
+
+                    <div class="manifesto-section">
+                        <h2>3 | Practice</h2>
+                        <p>
+                            We protect disagreement.<br>
+                            We allow thoughts to remain unfinished.<br>
+                            We allow relationships to hold tension.<br>
+                            We do not rush to resolve one another.
+                        </p>
+                    </div>
+
+                    <div class="manifesto-section">
+                        <h2>4 | Position</h2>
+                        <p>
+                            Disagreement is not failure.<br>
+                            Refusal is not destruction.<br>
+                            Multiple paths exist at once<br>
+                            is the space we choose to defend.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Pane: Interactive Canvas Space -->
+        <div id="right-pane">
+            <h2 id="draw-prompt">Draw your path.</h2>
+            <canvas id="drawing-canvas"></canvas>
+            <div id="canvas-controls">
+                <button id="save-btn">Done</button>
+                <button id="start-again-btn" disabled>Start Again</button>
+            </div>
+
+            <!-- Save Modal Popup -->
+            <div id="save-modal">
+                <div class="modal-content">
+                    <h3>Path Saved</h3>
+                    <img id="saved-image-preview" src="" alt="Your Path">
+                    <p id="restart-count-text">You have restarted 0 times.</p>
+                    <button id="close-modal-btn">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tell script.js that we are in split view mode
+        window.isSplitView = true;
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
