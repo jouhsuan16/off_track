@@ -25,7 +25,7 @@
             </h1>
             <div class="btn-group">
                 <a href="manifesto.html" class="manifesto-btn">Read Full Manifesto</a>
-                <a id="ways-link" href="#" class="ways-btn">Our Way of Working</a>
+                <a id="ways-link" href="#" class="ways-link">SEE HOW WE WORK IN PRACTICE →</a>
             </div>
         </div>
     </div>
@@ -37,7 +37,7 @@
             <h2>Ways of Working</h2>
 
             <div class="ways-section">
-                <h3>I. Decision-Making</h3>
+                <h3>1 | Decision-Making</h3>
                 <p>We do not measure decisions by speed of agreement.</p>
                 <p>We do not require full consensus in order to move forward.</p>
                 <p>When disagreement arises, we allow ideas to coexist rather than eliminate difference.</p>
@@ -47,7 +47,7 @@
             </div>
 
             <div class="ways-section">
-                <h3>II. Conflict</h3>
+                <h3>2 | Conflict</h3>
                 <p>Conflict is not a problem to suppress but a site where thinking happens.</p>
                 <p>Before major discussions, we create space for silence.</p>
                 <p>We do not reward immediate rebuttal.</p>
@@ -58,7 +58,7 @@
             </div>
 
             <div class="ways-section">
-                <h3>III. Pace and Production</h3>
+                <h3>3 | Pace and Production</h3>
                 <p>We refuse to reproduce productivity pressure within our collective.</p>
                 <p>We reserve time for thinking.</p>
                 <p>We do not require a unified visual style.</p>
@@ -70,7 +70,7 @@
             </div>
 
             <div class="ways-section">
-                <h3>IV. Roles and Power</h3>
+                <h3>4 | Roles and Power</h3>
                 <p>Roles are positions of support, not symbols of authority.</p>
                 <p>There is no fixed leader.</p>
                 <p>Creative direction rotates.</p>
@@ -81,11 +81,109 @@
             </div>
 
             <div class="ways-section">
-                <h3>V. Emotional Practice</h3>
+                <h3>5 | Emotional Practice</h3>
                 <p>We begin meetings with a brief emotional check-in.</p>
                 <p>Members may say, "I am not at capacity today."</p>
                 <p>Rest is not withdrawal.</p>
                 <p>We resist emotional numbness.</p>
+            </div>
+
+            <div class="roles-link-container">
+                <a href="#" id="roles-link" class="roles-overlay-link">SEE HOW OUR ROLES WORK →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Roles Overlay -->
+    <div id="roles-overlay">
+        <div id="roles-overlay-content">
+            <button id="roles-close-btn">✕</button>
+            <h2 class="roles-title">Our Roles</h2>
+
+            <div class="role-item">
+                <button class="role-header">
+                    <span class="role-number">1</span>
+                    <span class="role-name">Process Anchor</span>
+                    <span class="role-toggle">+</span>
+                </button>
+                <div class="role-body">
+                    <p>Responsible for safeguarding rhythm and structure:</p>
+                    <ul>
+                        <li>Reminds the group to slow down</li>
+                        <li>Ensures discussions are not overly compressed</li>
+                        <li>Maintains boundaries and time</li>
+                    </ul>
+                    <p class="role-note">They do not control direction; they protect the process.</p>
+                </div>
+            </div>
+
+            <div class="role-item">
+                <button class="role-header">
+                    <span class="role-number">2</span>
+                    <span class="role-name">Tension Holder</span>
+                    <span class="role-toggle">+</span>
+                </button>
+                <div class="role-body">
+                    <p>Responsible for protecting disagreement:</p>
+                    <ul>
+                        <li>Calls attention to overlooked voices</li>
+                        <li>Prevents premature consensus</li>
+                        <li>Encourages unfinished ideas to remain present</li>
+                    </ul>
+                    <p class="role-note">They are not contrarians, but guardians of complexity.</p>
+                </div>
+            </div>
+
+            <div class="role-item">
+                <button class="role-header">
+                    <span class="role-number">3</span>
+                    <span class="role-name">Documentation Keeper</span>
+                    <span class="role-toggle">+</span>
+                </button>
+                <div class="role-body">
+                    <p>Responsible for:</p>
+                    <ul>
+                        <li>Recording discussions</li>
+                        <li>Preserving unresolved questions</li>
+                        <li>Tracking the evolution of collective decisions</li>
+                    </ul>
+                    <p class="role-note">They ensure we do not forget in the acceleration of progress.</p>
+                </div>
+            </div>
+
+            <div class="role-item">
+                <button class="role-header">
+                    <span class="role-number">4</span>
+                    <span class="role-name">Boundary Steward</span>
+                    <span class="role-toggle">+</span>
+                </button>
+                <div class="role-body">
+                    <p>Responsible for:</p>
+                    <ul>
+                        <li>Noticing limits of capacity</li>
+                        <li>Monitoring overextension</li>
+                        <li>Supporting redistribution of tasks</li>
+                    </ul>
+                    <p class="role-note">They protect sustainability, not efficiency.</p>
+                </div>
+            </div>
+
+            <div class="role-item">
+                <button class="role-header">
+                    <span class="role-number">5</span>
+                    <span class="role-name">External Interface</span>
+                    <span class="role-toggle">+</span>
+                </button>
+                <div class="role-body">
+                    <p>Responsible for:</p>
+                    <ul>
+                        <li>External communication</li>
+                        <li>Articulating the collective's position</li>
+                        <li>Maintaining collaborative relationships</li>
+                    </ul>
+                    <p class="role-note">They do not speak as individuals, but translate the collective's agreements
+                        and disagreements.</p>
+                </div>
             </div>
         </div>
     </div>
@@ -96,17 +194,65 @@
         const waysOverlay = document.getElementById('ways-overlay');
         const waysCloseBtn = document.getElementById('ways-close-btn');
 
+        const rolesLink = document.getElementById('roles-link');
+        const rolesOverlay = document.getElementById('roles-overlay');
+        const rolesCloseBtn = document.getElementById('roles-close-btn');
+
         waysLink.addEventListener('click', (e) => {
             e.preventDefault();
             waysOverlay.classList.add('visible');
+            document.body.style.overflow = 'hidden';
         });
 
         waysCloseBtn.addEventListener('click', () => {
             waysOverlay.classList.remove('visible');
+            document.body.style.overflow = 'auto';
         });
 
         waysOverlay.addEventListener('click', (e) => {
-            if (e.target === waysOverlay) waysOverlay.classList.remove('visible');
+            if (e.target === waysOverlay) {
+                waysOverlay.classList.remove('visible');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        rolesLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            waysOverlay.classList.remove('visible');
+            rolesOverlay.classList.add('visible');
+            document.body.style.overflow = 'hidden';
+        });
+
+        rolesCloseBtn.addEventListener('click', () => {
+            rolesOverlay.classList.remove('visible');
+            document.body.style.overflow = 'auto';
+        });
+
+        rolesOverlay.addEventListener('click', (e) => {
+            if (e.target === rolesOverlay) {
+                rolesOverlay.classList.remove('visible');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Accordion logic for roles
+        document.querySelectorAll('.role-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const item = header.parentElement;
+                const isOpen = item.classList.contains('open');
+
+                // Close all others
+                document.querySelectorAll('.role-item').forEach(i => {
+                    i.classList.remove('open');
+                    i.querySelector('.role-toggle').textContent = '+';
+                });
+
+                // Toggle this one
+                if (!isOpen) {
+                    item.classList.add('open');
+                    header.querySelector('.role-toggle').textContent = '–';
+                }
+            });
         });
     </script>
 </body>

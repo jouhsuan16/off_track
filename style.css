@@ -63,8 +63,8 @@ body {
     color: var(--quote-color);
     text-decoration: none;
     font-family: 'Space Mono', monospace;
-    font-size: 0.55rem;
-    /* Halved font size */
+    font-size: 0.8rem;
+    /* Reduced from 0.9rem */
     text-transform: uppercase;
     letter-spacing: 1px;
     border: 1.5px solid var(--quote-color);
@@ -84,33 +84,28 @@ body {
 
 .btn-group {
     display: flex;
-    gap: 0.8rem;
+    flex-direction: column;
+    gap: 1.5rem;
     justify-content: center;
     align-items: center;
 }
 
-.ways-btn {
+.ways-link {
     display: inline-block;
-    padding: 0.5rem 1.1rem;
-    background-color: transparent;
     color: rgba(0, 0, 0, 0.45);
     text-decoration: none;
     font-family: 'Space Mono', monospace;
-    font-size: 0.55rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    border: 1.5px solid rgba(0, 0, 0, 0.25);
-    border-radius: 4px;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     cursor: pointer;
     font-weight: 700;
 }
 
-.ways-btn:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-    color: rgba(0, 0, 0, 0.8);
-    border-color: rgba(0, 0, 0, 0.5);
-    transform: translateY(-3px);
+.ways-link:hover {
+    color: var(--quote-color);
+    transform: translateX(5px);
 }
 
 /* STICKY NOTES container */
@@ -181,42 +176,20 @@ body {
     z-index: 5;
 }
 
-/* SPLIT VIEW (manifesto.html) */
+/* FULL PAGE VIEW (manifesto.html) */
 body.split-view {
-    overflow: auto;
-    /* Allow the window to scroll if needed */
-}
-
-#split-container {
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-}
-
-#left-pane {
-    width: 66.67%;
-    height: 100%;
-    padding: 4rem 10%;
-    background-color: var(--bg-color);
-    /* removed dashed border */
     overflow-y: auto;
-    position: relative;
-    z-index: 10;
 }
 
-/* On manifesto page, right pane is for the roles list */
-#right-pane {
-    width: 33.33%;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-    background-color: var(--bg-color);
-    cursor: default;
+#manifesto-full-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 6rem 2rem;
+    min-height: 100vh;
 }
 
-/* We don't need the sticky notes container here anymore, but keeping it in case it's on index */
-#right-pane #sticky-notes-container {
-    display: none;
+.manifesto-content {
+    position: relative;
 }
 
 #draw-prompt {
@@ -397,19 +370,27 @@ body.split-view {
 }
 
 .back-btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     margin-bottom: 2rem;
     color: #888;
     text-decoration: none;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Space Mono', monospace;
+    /* Updated to match roles link */
+    font-size: 0.9rem;
+    /* Updated to match roles link */
     text-transform: uppercase;
-    font-size: 0.8rem;
     letter-spacing: 1px;
-    transition: color 0.3s;
+    transition: all 0.3s ease;
+    font-weight: 700;
 }
 
 .back-btn:hover {
     color: var(--quote-color);
+    opacity: 0.7;
+    transform: translateX(-5px);
+    /* Slide left because it's a back button */
 }
 
 .manifesto-title {
@@ -439,31 +420,87 @@ body.split-view {
     font-weight: 400;
 }
 
-.manifesto-section p {
-    margin-bottom: 0;
+.roles-link-container {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-/* OUR ROTATING ROLES (manifesto right pane) */
-.roles-pane {
-    overflow-y: auto !important;
-    cursor: default !important;
-    background-color: var(--bg-color);
+.roles-overlay-link {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--quote-color);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 
-#roles-container {
-    padding: 0 1.5rem 4rem 2rem;
+.roles-overlay-link:hover {
+    opacity: 0.7;
+    transform: translateX(5px);
+}
+
+.roles-overlay-link {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--quote-color);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.roles-overlay-link:hover {
+    opacity: 0.7;
+    transform: translateX(5px);
+}
+
+
+/* OUR ROLES OVERLAY (Now on index.html) */
+#roles-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(253, 251, 247, 0.98);
+    backdrop-filter: blur(10px);
+    z-index: 9999;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    overflow-y: auto;
     opacity: 0;
-    /* hidden until JS positions it, prevents flash */
-    transition: opacity 0.2s ease;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+#roles-overlay.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#roles-overlay-content {
+    max-width: 800px;
+    /* Aligned with manifesto-full-page */
+    width: 90%;
+    padding: 6rem 2rem;
+    /* Aligned with manifesto-full-page */
+    position: relative;
 }
 
 .roles-title {
     font-family: 'DM Serif Display', serif;
-    font-size: 1.4rem;
-    /* matches 1|Reality heading */
+    font-size: 2.2rem;
+    /* Matches manifesto-title */
     color: var(--quote-color);
     font-weight: 400;
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
+    /* Matches manifesto-title */
 }
 
 .role-item {
@@ -580,18 +617,22 @@ body.split-view {
 }
 
 #ways-overlay-content {
-    max-width: 620px;
+    max-width: 800px;
+    /* Aligned with manifesto-full-page */
     width: 90%;
-    padding: 6rem 0 5rem;
+    padding: 6rem 2rem;
+    /* Aligned with manifesto-full-page */
     position: relative;
 }
 
 #ways-overlay-content h2 {
     font-family: 'DM Serif Display', serif;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+    /* Matches manifesto-title */
     color: var(--quote-color);
     font-weight: 400;
-    margin-bottom: 3.5rem;
+    margin-bottom: 3rem;
+    /* Matches manifesto-title */
 }
 
 .ways-section {
@@ -600,10 +641,11 @@ body.split-view {
 
 .ways-section h3 {
     font-family: 'DM Serif Display', serif;
-    font-size: 1.1rem;
-    color: rgba(0, 0, 0, 0.6);
+    font-size: 1.4rem;
+    /* Matches manifesto-section h2 */
+    color: var(--quote-color);
+    /* Matches manifesto-section h2 */
     font-weight: 400;
-    letter-spacing: 0.5px;
     margin-bottom: 1rem;
 }
 
@@ -615,6 +657,7 @@ body.split-view {
     margin-bottom: 0;
 }
 
+#roles-close-btn,
 #ways-close-btn {
     position: fixed;
     top: 2rem;
@@ -629,6 +672,7 @@ body.split-view {
     z-index: 10000;
 }
 
+#roles-close-btn:hover,
 #ways-close-btn:hover {
     color: rgba(0, 0, 0, 0.8);
 }
